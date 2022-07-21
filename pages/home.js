@@ -11,8 +11,8 @@ import axios from 'axios';
 
 
 
-const index= ()=> {
-  const [userData,setUserData] = useState({});
+const Index= ()=> {
+  const [uData,setUserData] = useState({});
   const url = "https://netflix-api1.herokuapp.com/api/verify/jwt";
   //const url = "http://localhost:5000/api/verify/jwt";
 
@@ -76,4 +76,4 @@ const index= ()=> {
   )
 }
 
-export default index;
+export default Index;
