@@ -15,7 +15,7 @@ import Login from '../components/Login';
 
 
 
-const index= (req,res)=> {
+const Index= (req,res)=> {
   const url = "https://netflix-api1.herokuapp.com/api/verify/jwt";
   //const url = "http://localhost:5000/api/verify/jwt";
  
@@ -130,7 +130,7 @@ const index= (req,res)=> {
 }
 
 
-export default index;
+export default Index;
 
 const Container = styled.div`
 background-image: url("https://assets.nflxext.com/ffe/siteui/vlv3/5fd505fa-f425-4a18-b3cc-00dd2638f541/d638b1fe-b44f-4cb3-b5d8-2106904c3be0/IN-en-20220704-popsignuptwoweeks-perspective_alpha_website_large.jpg");
