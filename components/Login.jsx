@@ -4,7 +4,7 @@ import React, { useState } from 'react'
 import { useCookies } from 'react-cookie';
 import styled from 'styled-components';
 
-const login = ({setSignin, title, user, emaildata, setVerify}) => {
+const Login = ({setSignin, title, user, emaildata, setVerify}) => {
    // const url = "https://netflix-api1.herokuapp.com/api/login"
     const url = "https://netflix-api1.herokuapp.com/api/login"
     const url2 = "https://netflix-api1.herokuapp.com/api/register"
@@ -138,7 +138,7 @@ const login = ({setSignin, title, user, emaildata, setVerify}) => {
   )
 }
 
-export default login;
+export default Login;
 
 const Cont = styled.div`
 .signup-s{
