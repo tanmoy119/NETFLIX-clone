@@ -8,6 +8,7 @@ import { useRouter } from "next/router";
 
 function Navbar({logint,login,signin}) {
   const url = "https://netflix-api1.herokuapp.com/api/logout"
+  //const url = "http://localhost:5000/api/logout"
   const router = useRouter();
 
   const [show, setShow] = useState(false);

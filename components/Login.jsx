@@ -4,14 +4,15 @@ import React, { useState } from 'react'
 import { useCookies } from 'react-cookie';
 import styled from 'styled-components';
 
-const login = ({setSignin, Title}) => {
+const login = ({setSignin, title, user, emaildata, setVerify}) => {
+   // const url = "https://netflix-api1.herokuapp.com/api/login"
     const url = "https://netflix-api1.herokuapp.com/api/login"
+    const url2 = "https://netflix-api1.herokuapp.com/api/register"
+    const url3 = "https://netflix-api1.herokuapp.com/api/verify/otp"
+    const url4 = "https://netflix-api1.herokuapp.com/api/otp/resend"
 
     const [cookies, setCookie] = useCookies('jwt');
- 
     const router =  useRouter();
-
-
   
     
 
@@ -32,7 +33,7 @@ const login = ({setSignin, Title}) => {
 
     const onSubmit = async (event)=>{
         event.preventDefault();
-    
+      if(title=='Sign In'){
         const res = await axios({
           method: 'post',
           url: url,
@@ -48,20 +49,90 @@ const login = ({setSignin, Title}) => {
         if(token){
         setCookie('jwt', token , {path:'/'});
         router.push('/home');
+      }
+    }else if(title =="Sign Up"){
+     
+      const res = await axios({
+        method: 'post',
+        url: url2,
+        headers: {}, 
+        data: {
+            email: emaildata.email,
+            password: data.password
+          
+        }
+      });
+
+      const token = res.data.token;
+      if(token){
+      setCookie('jwt', token , {path:'/'});
+      setVerify(true);
+      setData({
+        email:"",
+        otp:""
+      })
+    }
+    }else if(title =="Verify"){
+      const res = await axios({
+        method: 'post',
+        url: url3,
+        headers: {}, 
+        data: {
+            email: (emaildata.email)?emaildata.email:user.email,
+            otp: data.otp
+          
+        }
+      });
+
+      if(res.status =='200'){
+      router.push('/home');                                                   
     }
     }
+  }
+
+  const resendOtp = async ()=>{
+    const res = await axios({
+      method: 'post',
+      url: url4,
+      headers: {}, 
+      data: {
+          email: (emaildata.email)?emaildata.email:user.email
+        
+      }
+    });
+
+  }
   return (
     <Cont>
     <div className="signup-s">
-    <form onSubmit={onSubmit} >
-      <h1>Sign In</h1>
-      <input type="email" placeholder='Email' name='email' onChange={inputEvent} value={data.email} />
-      <input type="password" placeholder='Password' name='password' onChange={inputEvent} value={data.password} />
-      <button className='Sbtn' type='submit'>Sign In</button>
-      </form>
-      <h4> <span style={{color:'gray'}}>New to Netflix?</span><span  onClick={()=>setSignin(false)} className='SignupL'>Sign up now.</span></h4>
-   
 
+    {
+        (title == "Verify")?<>
+         <form onSubmit={onSubmit} >
+      <h1>{title}</h1>
+      
+      <input type="email" placeholder='Email' name='email'  value={(emaildata.email)?emaildata.email:user.email} />
+      <input type="string" placeholder='Otp' name='otp' onChange={inputEvent} value={data.otp} />
+      <button className='Sbtn' type='submit'>Verify</button>
+      </form>
+      <h4> <span style={{color:'gray'}}>New to Netflix?</span><span style={{cursor:'pointer'}}  onClick={()=>resendOtp()} className='SignupL'>Resend Otp</span></h4>
+        </>:<>
+        <form onSubmit={onSubmit} >
+      <h1>{title}</h1>
+      {
+        (title=='Sign Up')?<>
+        <input type="email" placeholder='Email' name='email' value={emaildata.email} /></>:<>
+        <input type="email" placeholder='Email' name='email' onChange={inputEvent} value={data.email} />
+        </>
+      }
+      
+      <input type="password" placeholder='Password' name='password' onChange={inputEvent} value={data.password} />
+      <button className='Sbtn' type='submit'>{title}</button>
+      </form>
+   
+      <h4> <span style={{color:'gray'}}>New to Netflix?</span><span style={{cursor:'pointer'}}  onClick={()=>setSignin(false)} className='SignupL'>{(title=="Sign In")?"Sign up now.":"Log In"}</span></h4>
+      </>
+    }
     </div>
     </Cont>
   )

@@ -14,6 +14,7 @@ import axios from 'axios';
 const index= ()=> {
   const [userData,setUserData] = useState({});
   const url = "https://netflix-api1.herokuapp.com/api/verify/jwt";
+  //const url = "http://localhost:5000/api/verify/jwt";
 
   const router =  useRouter();
 
@@ -43,11 +44,11 @@ const index= ()=> {
         
       }
     }); 
-    const user = res.data;   
-    console.log(res);
+    const user = res.data; 
      
-    
-    if(res.status == 200){
+    if(!user.verified){
+      router.push("/");
+    }else if(res.status == 200 ){
      setUserData(user);
     }
   })()

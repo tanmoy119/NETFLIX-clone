@@ -17,10 +17,25 @@ import Login from '../components/Login';
 
 const index= (req,res)=> {
   const url = "https://netflix-api1.herokuapp.com/api/verify/jwt";
+  //const url = "http://localhost:5000/api/verify/jwt";
  
   
   const [signin,setSignin] = useState(false);
+  const [signup,setSignup] = useState(false);
   const [cookies, setCookie] = useCookies('jwt');
+  const [verify, setVerify] = useState(false);
+  const [user, setUser] = useState(false);
+  const [data, setData] = useState('');
+
+  const inputEvent = (e)=>{
+    const {name,value} = e.target;
+    setData((prevalue)=>{
+       return {
+        ...prevalue,
+        [name]:value
+      }
+    });
+  }
  
   const router =  useRouter();
 
@@ -45,10 +60,13 @@ const index= (req,res)=> {
       }
     });        
     
+    setUser(res.data);
 
-
-    if(res.status == 200){
+    if(res.status == 200 && res.data.verified){
       router.push("/home");
+    }else if(!res.data.verified){
+      setVerify(true);
+      
     }
   })()
   },[url]);
@@ -58,11 +76,17 @@ const index= (req,res)=> {
     setSignin(true);
   };
 
+  const setsubmit = (event)=>{
+    event.preventDefault();
+    setSignin(true);
+    setSignup(true);
+  }
+
   
+ 
 
 
 
-  
 
 
    return (
@@ -76,18 +100,21 @@ const index= (req,res)=> {
     <Navbar login={loginP} logint signin={signin}/>
     <div className="body">
     {
-      (signin)?<>
+      (verify)?<>
+      <Login title={"Verify"} user={user} emaildata={data} />
+      </>:
+      (signin)?(signup)?<><Login setSignin={setSignup} setVerify={setVerify} title={"Sign Up"} emaildata={data}/></>:
      <Login setSignin={setSignin} title={"Sign In"}/>
 
-      </>:<>
+      :<>
      
       <h1>Unlimited movies, TV shows and more.</h1>
       <h2>Watch anywhere. Cancel anytime.</h2>
       <h3>Ready to watch? Enter your email to create or restart your membership.</h3>
       <div className="login-input">
-        <form action="">
-          <input type="email" placeholder='Email Adderss' required='true'   />
-          <button className="Lbtn" onClick={()=>loginP()}>GET STARTED</button>
+        <form onSubmit={setsubmit}>
+          <input type="email" placeholder='Email Adderss' required='true' name='email' onChange={inputEvent} value={data.password}   />
+          <button className="Lbtn" type='submit'>GET STARTED</button>
         </form>
       </div>
     
