@@ -11,10 +11,12 @@
   "dependencies": {
     "axios": "^0.27.2",
     "jsonwebtoken": "^8.5.1",
+    "movie-trailer": "^2.1.0",
     "next": "12.1.6",
     "react": "18.1.0",
     "react-cookie": "^4.1.1",
     "react-dom": "18.1.0",
+    "react-youtube": "^9.0.3",
     "styled-components": "^5.3.5"
   },
   "devDependencies": {
