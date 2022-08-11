@@ -1,34 +1,67 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+<h1 align="center" id="title">NETFLIX-clone</h1>
 
-## Getting Started
+<p align="center"><img src="https://socialify.git.ci/tanmoy119/NETFLIX-clone/image?description=1&amp;descriptionEditable=This%20is%20a%20Netflix%20clone%20web.%20We%20can%20register%20with%20e-mail%20id%20and%20we%20have%20to%20verify%20%20email%20to%20login.%20After%20login%20we%20can%20visit%20home%20page%20and%20and%20we%20can%20see%20movie%20trailers.&amp;font=Inter&amp;forks=1&amp;issues=1&amp;language=1&amp;name=1&amp;owner=1&amp;pattern=Floating%20Cogs&amp;pulls=1&amp;stargazers=1&amp;theme=Light" alt="project-image"></p>
 
-First, run the development server:
+<p id="description">This is a Netflix clone web. We can register with e-mail id and we have to verify email to login. After login we can visit home page and and we can see movie trailers.</p>
 
-```bash
-npm run dev
-# or
-yarn dev
+<h2>🚀 Demo</h2>
+
+[https://netflix-app-c.netlify.app/](https://netflix-app-c.netlify.app/)
+
+<h2>Project Screenshots:</h2>
+
+<img src="https://i.ibb.co/YBj8dgw/Screenshot-342.png" alt="project-screenshot" width="300" height="400/">
+
+<img src="https://i.ibb.co/9pYQL1Y/Screenshot-343.png" alt="project-screenshot" width="300" height="400/">
+
+<img src="https://i.ibb.co/j4pKbMv/Screenshot-344.png" alt="project-screenshot" width="295" height="400/">
+
+  
+  
+<h2>🧐 Features</h2>
+
+Here're some of the project's best features:
+
+*   we can register
+*   we can login
+*   we can see movie trailer.
+
+<h2>🛠️ Installation Steps:</h2>
+
+<p>1. Create clone</p>
+
+```
+git clone https://github.com/tanmoy119/NETFLIX-clone.git
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+<p>2. Install dependencies</p>
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+```
+git init 
+```
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+<p>3. Run the development server:</p>
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+```
+npm run dev # or yarn dev
+```
 
-## Learn More
 
-To learn more about Next.js, take a look at the following resources:
+<br/>  
+  Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+<br/>
+<h2>💻 Built with</h2>
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Technologies used in the project:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+*   react js
+*   next js
+*   axios
+*   jsonwebtoken
+*   movie-trailer
+*   react-youtube
+*   styled-components
 
-## Deploy on Vercel
+<h2>🛡️ License:</h2>
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+This project is licensed under the Tanmoy Barman
