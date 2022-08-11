@@ -10,11 +10,11 @@
 
 <h2>Project Screenshots:</h2>
 
-<img src="https://i.ibb.co/YBj8dgw/Screenshot-342.png" alt="project-screenshot" width="300" height="400/">
+<a href="https://ibb.co/j4pKbMv"><img src="https://i.ibb.co/YBj8dgw/Screenshot-342.png" alt="Screenshot-344" border="0"></a>
+<a href="https://ibb.co/j4pKbMv"><img src="https://i.ibb.co/9pYQL1Y/Screenshot-343.png" alt="Screenshot-344" border="0"></a>
+<a href="https://ibb.co/j4pKbMv"><img src="https://i.ibb.co/j4pKbMv/Screenshot-344.png" alt="Screenshot-344" border="0"></a>
 
-<img src="https://i.ibb.co/9pYQL1Y/Screenshot-343.png" alt="project-screenshot" width="300" height="400/">
 
-<img src="https://i.ibb.co/j4pKbMv/Screenshot-344.png" alt="project-screenshot" width="295" height="400/">
 
   
   
@@ -46,10 +46,10 @@ git init
 npm run dev # or yarn dev
 ```
 
+<h2>🍰 Contribution Guidelines:</h2>
 
-<br/>  
-  Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-<br/>
+  
+  
 <h2>💻 Built with</h2>
 
 Technologies used in the project:
